@@ -1,0 +1,33 @@
+﻿@page
+@model inlämingbank.Pages.AccountsModel
+@{
+}
+
+<h1>Alla Accounts</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+            <th scope="col">CustomerId</th>
+            <th scope="col">Givenname</th>
+            <th scope="col">Surname</th>
+            <th scope="col">NationalId</th>
+            <th scope="col">Streetaddress</th>
+            <th scope="col">City</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var supp in Model.Customers)
+    {
+        <tr>
+                <td>@supp.CustomerId</td>
+                <td>@supp.Givenname</td>
+                <td>@supp.Surname</td>
+                <td>@supp.NationalId</td>
+                <td>@supp.Streetaddress</td>
+                <td>@supp.City</td>
+        </tr>
+    }
+    </tbody>
+</table>
