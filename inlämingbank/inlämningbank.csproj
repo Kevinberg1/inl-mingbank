@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\table.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\countryl.css" />
   </ItemGroup>
 

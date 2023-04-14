@@ -7,6 +7,6 @@ namespace inlämningbank.Services
     {
        int GetAllCustomersFromCountryCount(string countryCode);
 
-       List<CustomersModel.CustomersViewModel> GetAllCustomers();
+       List<CustomersModel.CustomersViewModel> GetAllCustomers(string sortColumn, string sortOrder, int page);
     }
 }

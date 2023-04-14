@@ -1,0 +1,36 @@
+﻿
+
+table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+td, th {
+    padding: 0.5rem;
+}
+
+/* Add borders to table and table cells */
+table {
+    border: 2px solid #ccc;
+}
+
+td, th {
+    border: 1px solid #ccc;
+}
+
+/* Style table header */
+.table-box {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+/* Style table rows */
+tr {
+    transition: background-color 0.2s ease-in-out;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
