@@ -14,25 +14,34 @@
 </head>
 
 <body>
-<header>
-    <div class="container">
-        <a id="logotype" asp-area="" asp-page="/Index">Inlämingbank.</a>
-        <div id="menu">
-            <nav id="menu-links" class="links">
-                    <div class="style-box"> <a class="link" asp-area="" asp-page="/Index">Home</a></div>
-                   
-                <div class="style-box"><a class="link" asp-area="" asp-page="/Customers">Customers</a></div>
+  
+                
+               
+               
+                
+                  
                     
-                @if (User.IsInRole("Admin"))
+                
+  
+
+
+
+    <header>
+        <div class="container">
+            <a id="logotype" asp-area="" asp-page="/Index">Inlämingbank.</a>
+            <div id="menu">
+                <nav id="menu-links" class="links">
+                    <a class="link" asp-area="" asp-page="/Index">Home</a>
+                    <a class="link" asp-area="" asp-page="/Accounts">Accounts</a>
+                    @if (User.IsInRole("Admin"))
                     {
-                        <div class="style-box"><a class="link" asp-area="" asp-page="/Privacy">Privacy</a></div>
-                    <div class="style-box"><a class="link" asp-area="Identity"
-                                   asp-page="/Account/Register">Register</a>
-                                </div>
+                        <a class="link" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <a class="link" asp-area="Identity"
+                       asp-page="/Account/Register">Register</a>
                     }
                     <partial name="_LoginPartial" />
                 </nav>
-
+                
             </div>
         </div>
     </header>
@@ -44,11 +53,12 @@
 
 
 
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
-
-
-
-@RenderBody()
     <footer class="">
         <div class="container">
             &copy; 2023 - inlämingbank - <a asp-area="" asp-page="/Privacy">Privacy</a>

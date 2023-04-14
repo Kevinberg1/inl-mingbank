@@ -3,8 +3,70 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<link rel="stylesheet" href="~/css/countryl.css">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="all-country-card">
+    <div class="country-bigbox">
+
+        <div class="box-countries">
+            <a asp-page="/Countries/topCountris" asp-route-coutryCode="FI">
+                <div class="flag">
+                    <img style="max-width: 100px" src="~/img/Flag_of_Finland.svg" alt="Finland">
+                </div>
+                <div class="allcountry-text">
+                    <p>Accounts: @Model.TopCustomersFinland.Accounts</p>
+                    <p>Custommers: @Model.TopCustomersFinland.Customers</p>
+                    <p>Total Amounts: @Model.TopCustomersFinland.Total</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="box-countries">
+            <a asp-page="/Countries/topCountris" asp-route-coutryCode="NO">
+                <div class="flag">
+                    <img style="max-width: 100px" src="~/img/Flag_of_Norway.svg" alt="Norway">
+                </div>
+                <div class="allcountry-text">
+                    <p>Accounts: @Model.TopCustomersNorway.Accounts</p>
+                    <p>Custommers: @Model.TopCustomersNorway.Customers</p>
+                    <p>Total Amounts: @Model.TopCustomersNorway.Total</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="box-countries">
+            <a asp-page="/Countries/topCountris" asp-route-coutryCode="DK">
+                <div class="flag">
+                    <img style="max-width: 100px" src="~/img/Flag_of_Denmark.svg" alt="Denmark">
+                </div>
+                <div class="allcountry-text">
+                    <p>Accounts: @Model.TopCustomersDenmark.Accounts</p>
+                    <p>Custommers: @Model.TopCustomersDenmark.Customers</p>
+                    <p>Total Amounts: @Model.TopCustomersDenmark.Total</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="box-countries">
+            <a asp-page="/Countries/topCountris" asp-route-coutryCode="SE">
+                <div class="flag">
+                    <img style="max-width: 100px" src="~/img/Flag_of_Sweden.svg" alt="Sweden">
+                </div>
+                <div class="allcountry-text">
+                    <p>Accounts: @Model.TopCustomersSweden.Accounts</p>
+                    <p>Custommers: @Model.TopCustomersSweden.Customers</p>
+                    <p>Total Amounts: @Model.TopCustomersSweden.Total</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
 </div>
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+﻿@page
+@model inlämingbank.Pages.Countris.topCountrisModel
+@{
+}
+@*<h1>Top Countries</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Country</th>
+        <th>Total Accounts</th>
+        <th>Total Balance</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var country in Model.TopCountris)
+    {
+        <tr>
+            <td>@country.Countrys</td>
+            <td>@country.Accounts</td>
+            <td>@country.Balance</td>
+        </tr>
+    }
+    </tbody>
+</table>*@
+
+@*<h1>Top Customers for @Model.CountryCode</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Balance</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var customer in Model.TopCustumer)
+    {
+        <tr>
+            <td>@customer.Name</td>
+            <td>@customer.Email</td>
+            <td>@customer.Balance</td>
+        </tr>
+    }
+    </tbody>
+</table>*@

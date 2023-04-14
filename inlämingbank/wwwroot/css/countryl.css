@@ -1,0 +1,61 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
+
+
+.all-country-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0ebeb;
+    
+}
+.country-bigbox {
+    display: flex;
+    flex-direction: row;
+    margin-top: 124px;
+    margin-bottom: 124px;
+    
+}
+
+.box-countries {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    margin: 50px;
+    padding: 20px;
+   
+    border-radius: 23px;
+    background: linear-gradient(145deg, #cad4d4, #f0fbfb);
+    box-shadow: 13px 13px 31px #b1baba, -13px -13px 31px #ffffff;
+}
+    .box-countries:hover {
+        border-radius: 23px;
+        background: #e0ebeb;
+        box-shadow: inset 13px 13px 31px #b1baba, inset -13px -13px 31px #ffffff;
+    }
+
+.flag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.flag img {
+    max-width: 100px;
+}
+
+.allcountry-text {
+    text-align: center;
+    font-size: 20px;
+    font-family: poppins;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #24527a;
+}
+    
+    a {
+        text-decoration: none;
+    }
