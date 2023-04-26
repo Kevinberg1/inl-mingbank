@@ -1,6 +1,6 @@
 ﻿
 
-table {
+/*table {
     border-collapse: collapse;
     margin: 0;
     padding: 0;
@@ -9,28 +9,62 @@ table {
 
 td, th {
     padding: 0.5rem;
-}
+}*/
 
 /* Add borders to table and table cells */
-table {
+/*table {
     border: 2px solid #ccc;
 }
 
 td, th {
     border: 1px solid #ccc;
-}
+}*/
 
 /* Style table header */
-.table-box {
+/*.table-box {
     background-color: #eee;
     font-weight: bold;
-}
+}*/
 
 /* Style table rows */
-tr {
+/*tr {
     transition: background-color 0.2s ease-in-out;
 }
 
 tr:hover {
     background-color: #f2f2f2;
+}*/
+
+body {
+    background-color: #e0ebeb;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 90%;
+    margin: 50px auto;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 6px;
 }

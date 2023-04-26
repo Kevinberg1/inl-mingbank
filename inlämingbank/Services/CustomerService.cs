@@ -1,4 +1,5 @@
 ﻿using inlämingbank.BankAppData;
+using inlämingbank.Pages;
 using Microsoft.EntityFrameworkCore;
 using static inlämingbank.Pages.CustomersModel;
 
@@ -21,7 +22,13 @@ namespace inlämningbank.Services
             return accounts;
         }
 
-        public List<CustomersViewModel> GetAllCustomers( string sortColumn, string sortOrder, int page)
+        public Customer GetCustomer(int customerId)
+        {
+           return _dbContext.Customers.First(a => a.CustomerId == customerId);
+
+        }
+
+        public List<CustomersViewModel> GetAllCustomers(string sortColumn, string sortOrder, int page)
         {
             {
                 var query = _dbContext.Customers

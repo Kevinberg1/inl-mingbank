@@ -2,104 +2,111 @@
 @model inlämingbank.Pages.CustomersModel
 @{
 }
+<link rel="stylesheet" href="~/css/table.css">
 
-<h1>Alla Accounts</h1>
+<h1>Alla Customers</h1>
+<body>
+    <table class="table-bigbox">
+        <thead>
+            <tr class="table-box">
+                <th class="table-text">
+                    CustomerId<a asp-page="/Customers"
+                                 asp-route-sortColumn="CustomerId"
+                                 asp-route-sortOrder="asc"
+                                 style="text-decoration:none">
+                        <i class="fa-solid fa-angle-up"></i>
 
-<table class="table-bigbox">
-    <thead>
-        <tr class="table-box">
-            <th class="table-text">
-                CustomerId<a asp-page="/Customers"
-                             asp-route-sortColumn="CustomerId"
-                             asp-route-sortOrder="asc"
-                             style="text-decoration:none">
-                    <i class="fa-solid fa-angle-up"></i>
+                    </a>
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="CustomerId"
+                       asp-route-sortOrder="desc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                </th>
 
-                </a>
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="CustomerId"
-                   asp-route-sortOrder="desc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-down"></i>
-                </a>
-            </th>
+                <th class="table-text">
+                    Name
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="Givenname"
+                       asp-route-sortOrder="asc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-up"></i>
 
-            <th class="table-text">Name
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="Givenname"
-                   asp-route-sortOrder="asc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-up"></i>
+                    </a>
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="Givenname"
+                       asp-route-sortOrder="desc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
 
-                </a>
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="Givenname"
-                   asp-route-sortOrder="desc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-down"></i>
-                </a>
+                </th>
+                <th class="table-text">
+                    NationalId
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="NationalId"
+                       asp-route-sortOrder="asc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-up"></i>
 
-            </th>
-            <th class="table-text">NationalId
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="NationalId"
-                   asp-route-sortOrder="asc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-up"></i>
+                    </a>
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="NationalId"
+                       asp-route-sortOrder="desc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                </th>
+                <th class="table-text">
+                    Streetaddress
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="Streetaddress"
+                       asp-route-sortOrder="asc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-up"></i>
 
-                </a>
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="NationalId"
-                   asp-route-sortOrder="desc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-down"></i>
-                </a>
-            </th>
-            <th class="table-text">Streetaddress
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="Streetaddress"
-                   asp-route-sortOrder="asc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-up"></i>
+                    </a>
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="Streetaddress"
+                       asp-route-sortOrder="desc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                </th>
+                <th class="table-text">
+                    City
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="City"
+                       asp-route-sortOrder="asc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-up"></i>
 
-                </a>
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="Streetaddress"
-                   asp-route-sortOrder="desc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-down"></i>
-                </a>
-            </th>
-            <th class="table-text">City
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="City"
-                   asp-route-sortOrder="asc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-up"></i>
-
-                </a>
-                <a asp-page="/Customers"
-                   asp-route-sortColumn="City"
-                   asp-route-sortOrder="desc"
-                   style="text-decoration:none">
-                    <i class="fa-solid fa-angle-down"></i>
-                </a>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-
-        @foreach (var supp in Model.Customers)
-        {
-            <tr>
-                <td>@supp.CustomerId</td>
-                <td>@supp.Givenname @supp.Surname</td>
-                <td>@supp.NationalId</td>
-                <td>@supp.Streetaddress</td>
-                <td>@supp.City</td>
-                <td><a class="btn-theme">bla</a></td>
+                    </a>
+                    <a asp-page="/Customers"
+                       asp-route-sortColumn="City"
+                       asp-route-sortOrder="desc"
+                       style="text-decoration:none">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+
+            @foreach (var supp in Model.Customers)
+            {
+                <tr>
+                    <td>@supp.CustomerId</td>
+                    <td>@supp.Givenname @supp.Surname</td>
+                    <td>@supp.NationalId</td>
+                    <td>@supp.Streetaddress</td>
+                    <td>@supp.City</td>
+                    <td><a class="btn-theme" asp-route-customerId="@supp.CustomerId" asp-page="/Customer"> Info</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
