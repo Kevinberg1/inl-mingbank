@@ -4,6 +4,7 @@ using inlämingbank.Services;
 using inlämningbank.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,9 +27,12 @@ builder.Services.AddTransient<DataInitializer>();
 builder.Services.AddDbContext<BankAppDataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
 builder.Services.AddTransient<IAccountService, AccountService>(); //för att service ska hitta behöver varje service en sån här
 
 builder.Services.AddTransient<ICustomerService, CustomerService>();
+
 
 var app = builder.Build();
 
