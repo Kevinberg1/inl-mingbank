@@ -1,0 +1,75 @@
+﻿@page
+@model inlämningbank.Pages.AccountModel
+@{
+}
+<link rel="stylesheet" href="~/css/table.css">
+<h1>Alla Transationer</h1>
+<div><a class="btn-theme" onclick="window.history.back()"> Back</a></div>
+<body>
+    <div style="display: flex; justify-content: center;">
+        <a style="margin: 10px;" class="btn-theme" asp-route-accountId="@Model.AccountId" asp-page="/Accounts/Deposit"> Deposit</a>
+        <a style="margin: 10px;" class="btn-theme" asp-route-accountId="@Model.AccountId" asp-page="/Accounts/Withdraw"> Withdraw</a>
+        <a style="margin: 10px;" class="btn-theme" asp-route-accountId="@Model.AccountId" asp-page="/Accounts/Trensfer"> Trensfer</a>
+    </div>
+
+    <table class="table-bigbox" id="posts-table">
+        <thead>
+            <tr class="table-box">
+                <th class="table-text">
+                    TransactionId
+                </th>
+                <th class="table-text">
+                    Amount
+                </th>
+                <th class="table-text">
+                    Date
+                </th>
+                <th class="table-text">
+                    Type
+                </th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+        </tbody>
+    </table>
+    <div style="display: flex; justify-content: center; margin-bottom: 15px; "> <a class="btn-theme" href="javascript:showMore();">Show More</a> </div>
+
+</body>
+@section Scripts
+    {
+    <script>
+
+        pageNo = 1;
+        AccountId = @Model.AccountId;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            showMore();
+
+        });
+        function showMore() {
+            fetch(`/Account?handler=ShowMore&accountId=${AccountId}&pageNo=${pageNo}`)
+
+                .then((response) => response.json())
+                .then((json) => {
+                    pageNo = pageNo + 1
+                    json.transactions.forEach(drawElements);
+                });
+            console.log(response)
+
+
+        }
+        function drawElements(element) {
+            document.querySelector('#posts-table tbody').innerHTML +=
+                `<tr>
+                                    <td>${element.transactionId}</td>
+                                    <td>${element.amount}</td>
+                                    <td>${element.date}</td>
+                                    <td>${element.type}</td>
+                                </tr>`;
+        }
+
+    </script>
+
+}

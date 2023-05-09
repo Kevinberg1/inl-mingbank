@@ -1,39 +1,11 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
 
-/*table {
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-td, th {
-    padding: 0.5rem;
-}*/
-
-/* Add borders to table and table cells */
-/*table {
-    border: 2px solid #ccc;
-}
-
-td, th {
-    border: 1px solid #ccc;
-}*/
-
-/* Style table header */
-/*.table-box {
-    background-color: #eee;
-    font-weight: bold;
-}*/
-
-/* Style table rows */
-/*tr {
-    transition: background-color 0.2s ease-in-out;
-}
-
-tr:hover {
-    background-color: #f2f2f2;
-}*/
 
 body {
     background-color: #e0ebeb;
@@ -67,4 +39,31 @@ tr:first-child th:first-child {
 
 tr:first-child th:last-child {
     border-top-right-radius: 6px;
+}
+.back-customers {
+
+}
+h1 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: #24527a !important;
+    font-size: 35px !important;
+    font-weight: 900 !important;
+}
+.page-header {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: #24527a !important;
+    font-size: 35px !important;
+    font-weight: 900 !important;
+}
+.next {
+    display: flex;
+    justify-content: flex-end;
+
+}
+.prev {
+
 }

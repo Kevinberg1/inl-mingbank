@@ -1,4 +1,6 @@
+using AutoMapper;
 using inlämingbank.BankAppData;
+using inlämningbank.Infrastructure.Paging;
 using inlämningbank.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,27 +13,38 @@ namespace inlämingbank.Pages
         
         private readonly ICustomerService _customerService;
 
-        public CustomersModel( ICustomerService customerService)
+        private readonly IMapper _mapper;
+
+        public CustomersModel( ICustomerService customerService, IMapper mapper)
         {
-            
+            _mapper = mapper;
             _customerService = customerService;
 
         }
 
         public List<CustomersViewModel> Customers { get; set; }
 
-        public int Page { get; set; }
+        public int CurrentPage { get; set; }
+        public string Q { get; set; }
+
 
         public string SortColumn { get; set; }
         public string SortOrder { get; set; }
 
-        public void OnGet(string sortColumn, string sortOrder, int page)
+        public void OnGet(string sortColumn, string sortOrder, int pageNo, string q)
         {
+
+            if (pageNo == 0)
+                pageNo = 1;
+            CurrentPage = pageNo;
+            Q = q;
+
             SortColumn = sortColumn;
             SortOrder = sortOrder;
-            Page = page;
+            
 
-            Customers = _customerService.GetAllCustomers( sortColumn, sortOrder, page);
+            var customers = _customerService.GetAllCustomers( sortColumn, sortOrder, pageNo, Q);
+            Customers = _mapper.Map<List<CustomersViewModel>>(customers.Results);
         }
     }
 }

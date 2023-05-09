@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home page";
 }
+
 <link rel="stylesheet" href="~/css/countryl.css">
 
 
@@ -12,7 +13,7 @@
         <div class="box-countries">
             <a asp-page="/Countries/topCountris" asp-route-coutryCode="FI">
                 <div class="flag">
-                    <img style="max-width: 100px" src="~/img/Flag_of_Finland.svg" alt="Finland">
+                    <img class="w-100 h-100" src="~/img/finland-flag-png-large.png" alt="Finland">
                 </div>
                 <div class="allcountry-text">
                     <p>Accounts: @Model.TopCustomersFinland.Accounts</p>
@@ -25,7 +26,7 @@
         <div class="box-countries">
             <a asp-page="/Countries/topCountris" asp-route-coutryCode="NO">
                 <div class="flag">
-                    <img style="max-width: 100px" src="~/img/Flag_of_Norway.svg" alt="Norway">
+                    <img class="w-100 h-100" src="~/img/norway-flag-png-large.png" alt="Norway">
                 </div>
                 <div class="allcountry-text">
                     <p>Accounts: @Model.TopCustomersNorway.Accounts</p>
@@ -38,7 +39,7 @@
         <div class="box-countries">
             <a asp-page="/Countries/topCountris" asp-route-coutryCode="DK">
                 <div class="flag">
-                    <img style="max-width: 100px" src="~/img/Flag_of_Denmark.svg" alt="Denmark">
+                    <img class="w-100 h-100" src="~/img/denmark-flag-png-large.png" alt="Denmark">
                 </div>
                 <div class="allcountry-text">
                     <p>Accounts: @Model.TopCustomersDenmark.Accounts</p>
@@ -51,7 +52,7 @@
         <div class="box-countries">
             <a asp-page="/Countries/topCountris" asp-route-coutryCode="SE">
                 <div class="flag">
-                    <img style="max-width: 100px" src="~/img/Flag_of_Sweden.svg" alt="Sweden">
+                    <img class="w-100 h-100" src="~/img/sweden-flag-png-large.png" alt="Sweden">
                 </div>
                 <div class="allcountry-text">
                     <p>Accounts: @Model.TopCustomersSweden.Accounts</p>

@@ -2,4 +2,190 @@
 @model inlämningbank.Pages.CustomerModel
 @{
 }
-<div>@Model.Customer.Givenname</div>
+<link rel="stylesheet" href="~/css/CustomerCard.css">
+@*<div style="background-color: #e0ebeb; display: flex; justify-content: end;">
+    <a class="btn-theme" onclick="window.history.back()"> Back</a>
+</div>*@
+
+
+<div class="card" style="background-color: #e0ebeb;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h2 class="card-title">Fullname: @Model.Customer.Givenname @Model.Customer.Surname</h2>
+                <h4>E-mail: @Model.Customer.Emailaddress</h4>
+                <p>Gender: @Model.Customer.Gender</p>
+                <p>National ID: @Model.Customer.NationalId</p>
+                <p>Birthday: @Model.Customer.Birthday</p>
+                <p>Streetadress: @Model.Customer.Streetaddress</p>
+                <p>@Model.Customer.City, @Model.Customer.Country</p>
+                <p>Telephone-number: @Model.Customer.Telephonecountrycode @Model.Customer.Telephonenumber</p>
+                <div style ="display: flex; justify-content: end;";>
+                    <a style="display: flex; justify-content: end;" class="btn-theme" onclick="window.history.back()"> Back</a>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    <div class="card-footer">
+        @foreach (var account in Model.Accounts)
+        {
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <div class="fw-bold">Account ID:</div>
+                    <div>@account.AccountId</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="fw-bold">Balance:</div>
+                    <div>@account.Balance kr</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="fw-bold">Frequency:</div>
+                    <div>@account.Frequency</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="fw-bold">Created:</div>
+                    <div>@account.Created</div>
+                </div>
+                <div class="col-md-12" style="display: flex; justify-content: start">
+                    <a style="margin-top: 10px; margin-bottom: 5px;" class="btn-theme" asp-route-accountId="@account.AccountId" asp-page="/Account"> mer info</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+<div class="card">
+    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar">
+    <div class="container">
+        <h4>@Model.Customer.Givenname @Model.Customer.Surname</h4>
+        <p>@Model.Customer.Gender</p>
+        <p>@Model.Customer.NationalId</p>
+        <p>@Model.Customer.Birthday</p>
+        <p>@Model.Customer.Streetaddress</p>
+        <p>@Model.Customer.City</p>
+        <p>@Model.Customer.Country</p>
+        <p>@Model.Customer.Emailaddress</p>
+        <p>@Model.Customer.Telephonecountrycode @Model.Customer.Telephonenumber</p>
+    </div>
+    <div class="details">
+        @foreach (var account in Model.Accounts)
+        {
+            <div>
+                <div>Account ID:</div>
+                <div>@account.AccountId</div>
+            </div>
+            <div>
+                <div>Balance:</div>
+                <div>@account.Balance kr</div>
+            </div>
+            <div>
+                <div>Frequency:</div>
+                <div>@account.Frequency</div>
+            </div>
+            <div>
+                <div>Created:</div>
+                <div>@account.Created</div>
+            </div>
+            <div>
+                <a class="btn-theme" asp-route-accountId="@account.AccountId" asp-page="/Account">Mer info</a>
+            </div>
+        }
+    </div>
+</div>*@

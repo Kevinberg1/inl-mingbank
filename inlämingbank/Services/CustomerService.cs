@@ -1,5 +1,6 @@
 ﻿using inlämingbank.BankAppData;
 using inlämingbank.Pages;
+using inlämningbank.Infrastructure.Paging;
 using Microsoft.EntityFrameworkCore;
 using static inlämingbank.Pages.CustomersModel;
 
@@ -24,11 +25,11 @@ namespace inlämningbank.Services
 
         public Customer GetCustomer(int customerId)
         {
-           return _dbContext.Customers.First(a => a.CustomerId == customerId);
+            return _dbContext.Customers.First(a => a.CustomerId == customerId);
 
         }
 
-        public List<CustomersViewModel> GetAllCustomers(string sortColumn, string sortOrder, int page)
+        public PagedResult<CustomersViewModel> GetAllCustomers(string sortColumn, string sortOrder, int page, string q)
         {
             {
                 var query = _dbContext.Customers
@@ -42,6 +43,15 @@ namespace inlämningbank.Services
                         Streetaddress = s.Streetaddress,
                         City = s.City
                     });
+
+                if (!string.IsNullOrEmpty(q))
+                {
+                    query = query
+                        .Where(p => p.Givenname.Contains(q) ||
+                                    p.City.Contains(q)
+                                    );
+                }
+
 
                 if (string.IsNullOrEmpty(sortOrder))
                     sortOrder = "asc";
@@ -88,18 +98,25 @@ namespace inlämningbank.Services
                         query = query.OrderBy(p => p.Streetaddress);
                 }
 
-                return query.ToList();
+                return query.GetPaged(page, 50);
 
+            }
+        }
+        public List<Disposition> GetAccountForCustomers(string q)
+        {
+            {
 
-                //return _dbContext.Customers.Select(s => new CustomersViewModel
-                //{
-                //    CustomerId = s.CustomerId,
-                //    Givenname = s.Givenname,
-                //    Surname = s.Surname,
-                //    NationalId = s.NationalId,
-                //    Streetaddress = s.Streetaddress,
-                //    City = s.City
-                //}).ToList();
+                if (!string.IsNullOrEmpty(q))
+                {
+                    return _dbContext.Dispositions
+                        .Include(c => c.Customer)
+                        .Include(a => a.Account)
+                        .Where(p => p.Customer.Givenname.Contains(q) ||
+                                    p.Customer.Surname.Contains(q) ||
+                                p.Account.AccountId.ToString().Contains(q)).ToList();
+                }
+
+                return new List<Disposition>();
             }
         }
     }

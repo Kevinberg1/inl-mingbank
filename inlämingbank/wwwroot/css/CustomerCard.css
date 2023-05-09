@@ -1,0 +1,28 @@
+﻿
+.card-title {
+    color: #24527a !important;
+    margin: 25px;
+}
+
+p {
+    color: #24527a;
+    font-size: large;
+    font-weight: bold;
+    margin: 25px;
+}
+h4 {
+    color: #24527a;
+    font-size: large;
+    font-weight: bold;
+    margin: 25px;
+}
+.col-md-3 {
+    color: #24527a;
+    font-size: large;
+}
+
+h-account {
+    font-size: larger !important;
+    font-weight: bolder !important;
+    margin: 25px !important;
+}

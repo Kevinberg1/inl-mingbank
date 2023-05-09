@@ -14,21 +14,22 @@
 </head>
 
 <body>
-<header>
-    <div class="container">
-        <a id="logotype" asp-area="" asp-page="/Index">Inlämingbank.</a>
-        <div id="menu">
-            <nav id="menu-links" class="links">
+    <header>
+        <div class="container">
+            <a id="logotype" asp-area="" asp-page="/Index">Inlämingbank.</a>
+            <div id="menu">
+                <nav id="menu-links" class="links">
                     <div class="style-box"> <a class="link" asp-area="" asp-page="/Index">Home</a></div>
-                   
-                <div class="style-box"><a class="link" asp-area="" asp-page="/Customers">Customers</a></div>
-                    
-                @if (User.IsInRole("Admin"))
+
+                    <div class="style-box"><a class="link" asp-area="" asp-page="/Customers">Customers</a></div>
+
+                    @if (User.IsInRole("Admin"))
                     {
                         <div class="style-box"><a class="link" asp-area="" asp-page="/Privacy">Privacy</a></div>
-                    <div class="style-box"><a class="link" asp-area="Identity"
-                                   asp-page="/Account/Register">Register</a>
-                                </div>
+                        <div class="style-box">
+                            <a class="link" asp-area="Identity"
+                           asp-page="/Account/Register">Register</a>
+                        </div>
                     }
                     <partial name="_LoginPartial" />
                 </nav>
@@ -48,12 +49,27 @@
 
 
 
-@RenderBody()
-    <footer class="">
+    @RenderBody()
+    @*<footer class="">
         <div class="container">
             &copy; 2023 - inlämingbank - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer>*@
+    <section class="footer" style="display: block;justify-content: center;align-items: center;background-color: #e0ebeb;border-top: 1px solid #24527a;padding: 4px 4px; ">
+        <div class="footer text-muted">
+            <nav class="links" style=" display: flex; align-items: center; justify-content: center;">
+                <a class="link a-footer"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="link a-footer"><i class="fa-brands fa-instagram"></i></a>
+                <a class="link a-footer"><i class="fa-brands fa-twitter"></i></a>
+                <a class="link a-footer"><i class="fa-brands fa-google"></i></a>
+                <a class="link a-footer"><i class="fa-brands fa-linkedin"></i></a>
+            </nav>
+            <a asp-area="" 
+                   style="display: flex; justify-content: center; align-items: center; color: #24527a; text-decoration: none; font-weight: 500; font-size: medium; margin-bottom: 10px; margin-top: 4px;" 
+                   asp-page="/Privacy">© 2023 Kevins Bank. All Rights Reserved</a>
+        </div>
+
+    </section>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

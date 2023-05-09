@@ -1,5 +1,6 @@
 ﻿using inlämingbank.BankAppData;
 using inlämingbank.Pages;
+using inlämningbank.Infrastructure.Paging;
 
 
 namespace inlämningbank.Services
@@ -8,8 +9,8 @@ namespace inlämningbank.Services
     {
        int GetAllCustomersFromCountryCount(string countryCode);
 
-       List<CustomersViewModel> GetAllCustomers(string sortColumn, string sortOrder, int page);
-
+       PagedResult<CustomersViewModel> GetAllCustomers(string sortColumn, string sortOrder, int page, string q);
+       List<Disposition> GetAccountForCustomers(string q);
        Customer GetCustomer(int customerId);
     }
 }

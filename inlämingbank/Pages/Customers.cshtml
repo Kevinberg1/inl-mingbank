@@ -4,7 +4,16 @@
 }
 <link rel="stylesheet" href="~/css/table.css">
 
-<h1>Alla Customers</h1>
+<h1 class="header">Alla Customers</h1>
+<h3 class="page-header">Page @Model.CurrentPage</h3>
+@*Search*@
+<form method="get">
+    <input asp-for="@Model.Q" />
+    <input type="hidden" asp-for="@Model.Customers" />
+    <input type="submit" value="Search" />
+</form>
+<div><a class="btn-theme back-customers" onclick="window.history.back()"> Back</a></div>
+
 <body>
     <table class="table-bigbox">
         <thead>
@@ -106,6 +115,36 @@
                     <td><a class="btn-theme" asp-route-customerId="@supp.CustomerId" asp-page="/Customer"> Info</a></td>
                 </tr>
             }
+            <tr>
+                <td style="display: flex; justify-content: end;">
+                    @if (Model.CurrentPage != 1)
+                    {
+
+                        <a class="btn-theme" 
+                       asp-page="/Customers" asp-route-customers="@Model.Customers"
+                       asp-route-sortColumn="@Model.SortColumn"
+                       asp-route-sortOrder="@Model.SortOrder"
+                       asp-route-pageNo="@(Model.CurrentPage - 1)">
+                            Prev
+
+                        </a>
+                    }
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                <td>
+                    <a class="btn-theme"
+                       asp-page="/Customers" asp-route-customers="@Model.Customers"
+                       asp-route-sortColumn="@Model.SortColumn"
+                       asp-route-sortOrder="@Model.SortOrder"
+                       asp-route-pageNo="@(Model.CurrentPage + 1)">
+                        Next
+                    </a>
+                </td>
+                </td>
+            </tr>
+
         </tbody>
     </table>
 

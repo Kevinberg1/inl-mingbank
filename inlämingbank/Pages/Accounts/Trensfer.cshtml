@@ -1,0 +1,45 @@
+﻿@page
+@model inlämningbank.Pages.Accounts.TrensferModel
+@{
+}
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title">Deposit</h1>
+    </div>
+    <div class="card-body">
+        <a class="btn btn-secondary mb-3" onclick="window.history.back()">Back</a>
+        <form method="post">
+            <input asp-for="@Model.Q" />
+            <input type="hidden" asp-for="@Model.Customers" />
+            <button type="submit" value="Search" asp-page-handler="Search" asp-route-accountId="@Model.AccountId">skicka</button>
+        </form>
+        @if (Model.ToAccounts != null)
+        {
+            foreach (var account in Model.ToAccounts)
+            {
+                @account.ToGivenname
+                @account.ToLastname
+                @account.ToaccountId
+            }
+        }
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label" asp-for="ToAccountId">toAccountId</label>
+                <input class="form-control" asp-for="ToAccountId" />
+                <span class="text-danger" asp-validation-for="ToAccountId"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" asp-for="Amount">Amount</label>
+                <input class="form-control" asp-for="Amount"/>
+                <span class="text-danger" asp-validation-for="Amount"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="Comment">Comment</label>
+                <input class="form-control" asp-for="Comment"/>
+                <span class="text-danger" asp-validation-for="Comment"></span>
+            </div>
+            <button type="submit" asp-page-handler="Transfer" asp-route-accountId="@Model.AccountId" class="btn btn-primary">Trensfer</button>
+        </form>
+    </div>
+</div>
