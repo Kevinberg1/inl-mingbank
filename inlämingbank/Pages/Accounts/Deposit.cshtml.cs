@@ -5,9 +5,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using inlämningbank.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace inlämningbank.Pages.Accounts
 {
+    
+    [Authorize(Roles = "Cashier")]
     public class DepositModel : PageModel
     {
         private readonly IAccountService _accountService;

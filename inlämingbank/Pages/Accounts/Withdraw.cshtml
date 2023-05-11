@@ -3,7 +3,35 @@
 @{
 }
 
-<h1>Withdraw</h1>
+
+<link rel="stylesheet" href="~/css/Style.css">
+<link rel="stylesheet" href="~/css/withdraw.css">
+
+<div class="card withdraw-card" style="margin-bottom: 175px; margin-top: 150px">
+    <div class="card-body">
+        <h5 class="card-title" style="color: #24527a; font-weight: bolder;">Withdraw</h5>
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Amount" style="color: #24527a;">Amount</label>
+                <input class="form-control" asp-for="Amount" />
+                <span class="field-validation-error" asp-validation-for="Amount"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comment" style="color: #24527a;">Comment</label>
+                <input class="form-control" asp-for="Comment" />
+                <span class="field-validation-error" asp-validation-for="Comment"></span>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <button type="submit" asp-page-handler="Withdraw" asp-route-accountId="@Model.AccountId" class="btn-theme">Withdraw</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+@*<h1>Withdraw</h1>
 <div><a class="btn-theme" onclick="window.history.back()"> Back</a></div>
 <form method="post">
     <div class="form-group">
@@ -17,6 +45,4 @@
         <span class="field-validation-error" asp-validation-for="Comment"></span>
     </div>
     <button type="submit" asp-page-handler="Withdraw" asp-route-accountId="@Model.AccountId" class="btn btn-primary">Withdraw</button>
-</form>
-
-
+</form>*@

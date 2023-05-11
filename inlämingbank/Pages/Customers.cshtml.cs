@@ -2,12 +2,15 @@ using AutoMapper;
 using inlämingbank.BankAppData;
 using inlämningbank.Infrastructure.Paging;
 using inlämningbank.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace inlämingbank.Pages
 {
+    [Authorize(Roles = "Cashier")]
     public partial class CustomersModel : PageModel
     {
         

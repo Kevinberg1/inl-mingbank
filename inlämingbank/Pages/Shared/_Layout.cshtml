@@ -13,7 +13,7 @@
     <title>Bank.</title>
 </head>
 
-<body>
+<body style="background-color: #e0ebeb;">
     <header>
         <div class="container">
             <a id="logotype" asp-area="" asp-page="/Index">Inlämingbank.</a>
@@ -21,11 +21,18 @@
                 <nav id="menu-links" class="links">
                     <div class="style-box"> <a class="link" asp-area="" asp-page="/Index">Home</a></div>
 
-                    <div class="style-box"><a class="link" asp-area="" asp-page="/Customers">Customers</a></div>
+                    @*<div class="style-box"><a class="link" asp-area="" asp-page="/Customers">Customers</a></div>*@
+                    
+                    @if (User.IsInRole("Cashier"))
+                    {
+                        <div class="style-box"><a class="link" asp-area="" asp-page="/Customers">Customers</a></div>
+
+                    }
 
                     @if (User.IsInRole("Admin"))
                     {
-                        <div class="style-box"><a class="link" asp-area="" asp-page="/Privacy">Privacy</a></div>
+                        
+                        
                         <div class="style-box">
                             <a class="link" asp-area="Identity"
                            asp-page="/Account/Register">Register</a>

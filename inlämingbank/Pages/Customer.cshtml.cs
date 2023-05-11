@@ -6,9 +6,12 @@ using AutoMapper;
 using inlämingbank.BankAppData;
 using inlämingbank.Services;
 using inlämningbank.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace inlämningbank.Pages
 {
+    [Authorize(Roles = "Cashier")]
     public class CustomerModel : PageModel
     {
         private readonly ICustomerService _customerService;

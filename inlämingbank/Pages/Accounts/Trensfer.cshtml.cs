@@ -3,13 +3,17 @@ using inlämingbank.BankAppData;
 using inlämingbank.Pages;
 using inlämingbank.Services;
 using inlämningbank.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace inlämningbank.Pages.Accounts
 {
+    
+    [Authorize(Roles = "Cashier")]
     public class TrensferModel : PageModel
     {
         private readonly IAccountService _accountService;

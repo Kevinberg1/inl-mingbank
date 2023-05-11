@@ -4,14 +4,19 @@ using inlämingbank.Pages;
 using inlämingbank.Services;
 using inlämningbank.Services;
 using inlämningbank.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace inlämningbank.Pages
 {
+    [Authorize(Roles = "Cashier")]
     public class AccountModel : PageModel
     {
+        
+
 
         private readonly IMapper _mapper;
         private readonly IAccountService _accountService;
